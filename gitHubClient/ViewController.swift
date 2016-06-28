@@ -20,6 +20,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func requestToken(sender: AnyObject) {
+        GitHubOAuth.shared.oAuthRequestWith(["scope" : "email, user"])
+    }
+    
+    @IBAction func printToken(sender: AnyObject) {
+        do{
+            let token = try GitHubOAuth.shared.accessToken()
+            print(token)
+            
+        }catch let error{
+            print(error)
+        }
+    }
 
 }
 
