@@ -13,6 +13,7 @@
 		908785EF1D22085100A258C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908785EE1D22085100A258C2 /* Assets.xcassets */; };
 		908785F21D22085100A258C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908785F01D22085100A258C2 /* LaunchScreen.storyboard */; };
 		908785FA1D2208A100A258C2 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785F91D2208A100A258C2 /* Credentials.swift */; };
+		908785FC1D220FB400A258C2 /* GitHubOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785FB1D220FB400A258C2 /* GitHubOAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		908785F11D22085100A258C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		908785F31D22085100A258C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		908785F91D2208A100A258C2 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = ../Credentials.swift; sourceTree = "<group>"; };
+		908785FB1D220FB400A258C2 /* GitHubOAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubOAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				908785E71D22085100A258C2 /* AppDelegate.swift */,
 				908785E91D22085100A258C2 /* ViewController.swift */,
+				908785FB1D220FB400A258C2 /* GitHubOAuth.swift */,
 				908785EB1D22085100A258C2 /* Main.storyboard */,
 				908785EE1D22085100A258C2 /* Assets.xcassets */,
 				908785F01D22085100A258C2 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908785FC1D220FB400A258C2 /* GitHubOAuth.swift in Sources */,
 				908785FA1D2208A100A258C2 /* Credentials.swift in Sources */,
 				908785EA1D22085100A258C2 /* ViewController.swift in Sources */,
 				908785E81D22085100A258C2 /* AppDelegate.swift in Sources */,
