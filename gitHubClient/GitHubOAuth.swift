@@ -8,8 +8,8 @@
 
 import UIKit
 
-let kAccessToKey = "kAccessToKey"
-let kOAuthBaseURL = "htpps://github.com/login/oauth/"
+let kAccessTokenKey = "kAccessTokenKey"
+let kOAuthBaseURL = "https://github.com/login/oauth/"
 let kAccessTokenRegexPattern = "access_token=([^&]+)"
 
 typealias GitHubOAuthCompletion = (sucess:Bool) -> ()
@@ -88,7 +88,7 @@ class GitHubOAuth{
     
     
     func someAccessTokenToUserDefaluts(accessToken:String) -> Bool{
-        NSUserDefaults.standardUserDefaults().setObject(accessToken, forKey: kAccessToKey)
+        NSUserDefaults.standardUserDefaults().setObject(accessToken, forKey: kAccessTokenKey)
         
         return NSUserDefaults.standardUserDefaults().synchronize()
     }
@@ -136,7 +136,7 @@ class GitHubOAuth{
     
     func accessToken() throws ->String?{
         
-        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessToKey) else{
+        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else{
             throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
         }
         return accessToken
