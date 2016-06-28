@@ -23,7 +23,7 @@
 		908785EE1D22085100A258C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		908785F11D22085100A258C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		908785F31D22085100A258C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		908785F91D2208A100A258C2 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		908785F91D2208A100A258C2 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = ../Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,6 @@
 		908785DB1D22085100A258C2 = {
 			isa = PBXGroup;
 			children = (
-				908785F91D2208A100A258C2 /* Credentials.swift */,
 				908785E61D22085100A258C2 /* gitHubClient */,
 				908785E51D22085100A258C2 /* Products */,
 			);
@@ -63,6 +62,7 @@
 				908785EE1D22085100A258C2 /* Assets.xcassets */,
 				908785F01D22085100A258C2 /* LaunchScreen.storyboard */,
 				908785F31D22085100A258C2 /* Info.plist */,
+				908785F91D2208A100A258C2 /* Credentials.swift */,
 			);
 			path = gitHubClient;
 			sourceTree = "<group>";
@@ -292,6 +292,7 @@
 				908785F81D22085100A258C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
