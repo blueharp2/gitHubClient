@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func requestToken(sender: AnyObject) {
-        GitHubOAuth.shared.oAuthRequestWith(["scope" : "email, user"])
+        GitHubOAuth.shared.oAuthRequestWith(["scope" : "email,user,repo"])
     }
     
     @IBAction func printToken(sender: AnyObject) {

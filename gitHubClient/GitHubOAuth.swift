@@ -40,7 +40,7 @@ class GitHubOAuth{
         }
         
         if let requestURL = NSURL(string: "\(kOAuthBaseURL)authorize?client_id=\(kGitHubClientID)&scope=\(parameterString)"){
-            print(requestURL)
+           print(requestURL)
             
             UIApplication.sharedApplication().openURL(requestURL)
         }
