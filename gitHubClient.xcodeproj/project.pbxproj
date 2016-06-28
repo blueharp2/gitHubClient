@@ -61,11 +61,11 @@
 				908785E71D22085100A258C2 /* AppDelegate.swift */,
 				908785E91D22085100A258C2 /* ViewController.swift */,
 				908785FB1D220FB400A258C2 /* GitHubOAuth.swift */,
+				908785F91D2208A100A258C2 /* Credentials.swift */,
 				908785EB1D22085100A258C2 /* Main.storyboard */,
 				908785EE1D22085100A258C2 /* Assets.xcassets */,
 				908785F01D22085100A258C2 /* LaunchScreen.storyboard */,
 				908785F31D22085100A258C2 /* Info.plist */,
-				908785F91D2208A100A258C2 /* Credentials.swift */,
 			);
 			path = gitHubClient;
 			sourceTree = "<group>";
