@@ -94,7 +94,53 @@ class GitHubOAuth{
     }
     
     func tokenRequestWithCallback(url:NSURL, options: SaveOptions, completion: GitHubOAuthCompletion){
-        
+        do {
+            let temporaryCode = try self.temporaryCodeFromCallback(url)
+            
+            let requestString = "\(kOAuthBaseURL)access_token?client_id=\(kGitHubClientID)&client_secret =\(kGitHubClientLicense)&code=\(temporaryCode)"
+            
+            if let requestURL = NSURL(string: requestString){
+                let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+                let session = NSURLSession(configuration: sessionConfiguration)
+                
+                session.dataTaskWithURL(requestURL, completionHandler: { (data, response, error) in
+                    if let _ = error{
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                            completion(sucess: false);
+                            return
+                        })
+                    }
+                    if let data = data{
+                        if let tokenString = self.stringWith(data){
+                            do{
+                                if let token = try self.accessTokenFromString(tokenString){
+                                    NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                                        completion(sucess: self.someAccessTokenToUserDefaluts(token))
+                                    })
+                                }
+                            } catch _{
+                                NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                                    completion(sucess: false)
+                                })
+                            }
+                        }
+                    }
+                }).resume()
+            }
+        } catch _{
+            NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                completion(sucess: false)
+            })
+        }
     }
     
+    func accessToken() throws ->String?{
+        
+        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessToKey) else{
+            throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
+        }
+        return accessToken
+    }
+        
+        
 }
