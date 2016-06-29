@@ -27,7 +27,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gitHubClient://</string>
+				<string>githubclient</string>
 			</array>
 		</dict>
 	</array>
