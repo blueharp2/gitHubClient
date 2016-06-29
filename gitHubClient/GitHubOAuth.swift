@@ -48,12 +48,12 @@ class GitHubOAuth{
     
     
     func temporaryCodeFromCallback(url:NSURL)throws -> String{
-        print(url.absoluteString)
+        print("CallbackURL: \(url.absoluteString)")
         
         guard let termporaryCode = url.absoluteString.componentsSeparatedByString("=").last else{
             throw GitHubOAuthError.ExtractingTemporaryCode("Error: Extraction of Temporary Code Failed")
         }
-        print(termporaryCode)
+        print("Temporary Code:\(termporaryCode)")
         
         return termporaryCode
     }
@@ -70,11 +70,12 @@ class GitHubOAuth{
     
     func accessTokenFromString(string:String)throws -> String?{
         do{
-            let regex = try NSRegularExpression(pattern: kAccessTokenRegexPattern, options: .CaseInsensitive)
+            let regex = try NSRegularExpression(pattern: kAccessTokenRegexPattern, options: NSRegularExpressionOptions.CaseInsensitive)
             let matches = regex.matchesInString(string, options: .Anchored, range: NSMakeRange(0, string.characters.count))
             
             if matches.count > 0{
                 for(_,value)in matches.enumerate(){
+                    print("Match Range: \(value)")
                     let matchRange = value.rangeAtIndex(1)
                     return (string as NSString).substringWithRange(matchRange)
                 }
@@ -87,7 +88,7 @@ class GitHubOAuth{
     }
     
     
-    func someAccessTokenToUserDefaluts(accessToken:String) -> Bool{
+    func saveAccessTokenToUserDefaluts(accessToken:String) -> Bool{
         NSUserDefaults.standardUserDefaults().setObject(accessToken, forKey: kAccessTokenKey)
         
         return NSUserDefaults.standardUserDefaults().synchronize()
@@ -97,7 +98,7 @@ class GitHubOAuth{
         do {
             let temporaryCode = try self.temporaryCodeFromCallback(url)
             
-            let requestString = "\(kOAuthBaseURL)access_token?client_id=\(kGitHubClientID)&client_secret =\(kGitHubClientLicense)&code=\(temporaryCode)"
+            let requestString = "\(kOAuthBaseURL)access_token?client_id=\(kGitHubClientID)&client_secret=\(kGitHubClientLicense)&code=\(temporaryCode)"
             
             if let requestURL = NSURL(string: requestString){
                 let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -115,7 +116,7 @@ class GitHubOAuth{
                             do{
                                 if let token = try self.accessTokenFromString(tokenString){
                                     NSOperationQueue.mainQueue().addOperationWithBlock({ 
-                                        completion(sucess: self.someAccessTokenToUserDefaluts(token))
+                                        completion(sucess: self.saveAccessTokenToUserDefaluts(token))
                                     })
                                 }
                             } catch _{
