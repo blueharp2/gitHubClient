@@ -23,6 +23,7 @@ enum GitHubOAuthError: ErrorType{
 
 enum SaveOptions: Int{
     case userDefaults
+    case keyChain
 }
 
 
@@ -135,13 +136,51 @@ class GitHubOAuth{
         }
     }
     
+    
     func accessToken() throws ->String?{
+        var query = self.keychainQuery(kAccessTokenKey)
         
-        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else{
-            throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
+        query[(kSecReturnData as String)] = kCFBooleanTrue
+        query[(kSecMatchLimit as String)] = "no token"
+        
+        var dataRef: AnyObject?
+        
+        if SecItemCopyMatching(query, &dataRef) == errSecSuccess{
+                if let data = dataRef as? NSData{
+                    if let token = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? String{
+                        return token
+                    }
+                }
+            }
         }
-        return accessToken
     }
+    
+//    func accessToken() throws ->String?{
+//        
+//        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else{
+//            throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
+//        }
+//        return accessToken
+//    }
+    
+    
+//MARK:Save to Keychain
+    private func saveToKeychain(token: String) -> Bool{
+        var query = self.keychainQuery(kAccessTokenKey)
+        query[kSecValueData as String] = NSKeyedArchiver.archivedDataWithRootObject(token)
+        SecItemDelete(query)
         
+        return SecItemAdd(query, nil) == errSecSuccess
+    }
+    
+    private func keychainQuery(query:String) -> [String:AnyObject]{
+        
+        return [(kSecClass as String):kSecClassGenericPassword,
+            (kSecAttrService as String):query,
+            (kSecAttrAccount as String):query,
+            (kSecAttrAccessible as String):kSecAttrAccessibleAfterFirstUnlock
+        ]
+        
+    }
         
 }
