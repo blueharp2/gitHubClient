@@ -22,8 +22,8 @@ enum GitHubOAuthError: ErrorType{
 }
 
 enum SaveOptions: Int{
-    case userDefaults
-    case keyChain
+    case UserDefaults
+    case Keychain
 }
 
 
@@ -96,6 +96,14 @@ class GitHubOAuth{
     }
     
     func tokenRequestWithCallback(url:NSURL, options: SaveOptions, completion: GitHubOAuthCompletion){
+        
+        func returnOnMain(sucess:Bool, _ completion: (Bool) -> ()){
+            NSOperationQueue.mainQueue().addOperationWithBlock { 
+                completion(sucess)
+            }
+        }
+        
+        
         do {
             let temporaryCode = try self.temporaryCodeFromCallback(url)
             
@@ -106,6 +114,7 @@ class GitHubOAuth{
                 let session = NSURLSession(configuration: sessionConfiguration)
                 
                 session.dataTaskWithURL(requestURL, completionHandler: { (data, response, error) in
+                    
                     if let _ = error{
                         NSOperationQueue.mainQueue().addOperationWithBlock({ 
                             completion(sucess: false);
@@ -115,24 +124,22 @@ class GitHubOAuth{
                     if let data = data{
                         if let tokenString = self.stringWith(data){
                             do{
-                                if let token = try self.accessTokenFromString(tokenString){
-                                    NSOperationQueue.mainQueue().addOperationWithBlock({ 
-                                        completion(sucess: self.saveAccessTokenToUserDefaluts(token))
-                                    })
+                                let token = try self.accessTokenFromString(tokenString)!
+                                
+                                switch options{
+                                    case .UserDefaults: returnOnMain(self.saveAccessTokenToUserDefaluts(token), completion)
+                                    case .Keychain: returnOnMain(self.saveToKeychain(token), completion)
                                 }
+                            
                             } catch _{
-                                NSOperationQueue.mainQueue().addOperationWithBlock({ 
-                                    completion(sucess: false)
-                                })
+                                returnOnMain(false, completion)
                             }
                         }
                     }
                 }).resume()
             }
         } catch _{
-            NSOperationQueue.mainQueue().addOperationWithBlock({ 
-                completion(sucess: false)
-            })
+           returnOnMain(false, completion)
         }
     }
     
