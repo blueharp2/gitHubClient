@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, Setup {
+class OAuthViewController: UIViewController, Setup {
 
     @IBOutlet weak var logInButton: UIButton!
     

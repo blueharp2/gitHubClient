@@ -12,10 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var oAuthViewController: OAuthViewController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.checkOAuthStatus()
         return true
     }
 
@@ -24,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GitHubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.Keychain) { (sucess) in
             if sucess{
-                print("We have a token!!")
-               // self.checkOAuthStatus()
+                //print("We have a token!!")
+        
             }
         }
         return true
@@ -34,10 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func checkOAuthStatus(){
         do{
-            let token = try GitHubOAuth.shared.accessToken()
-            print(token)
-        }catch _{ fatalError("No Token Found")}
+            if let token = try GitHubOAuth.shared.accessToken(){ print(token) }
+            
+            
+        }catch _{}
     }
 
+    func presentOAuthViewController(){
+        guard let homeViewController = self.window?.rootViewController as? HomeViewController else{fatalError("Check your Root View Controller")}
+        guard let storyboard = homeViewController.storyboard else {fatalError("Check for Storyboard")}
+        guard let oAuthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.id) as?
+            OAuthViewController else {fatalError("Error with OAuthVC")}
+        
+    }
 }
 

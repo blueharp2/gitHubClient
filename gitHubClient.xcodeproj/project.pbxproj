@@ -11,7 +11,7 @@
 		902E634C1D24B6F000454E40 /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E634B1D24B6F000454E40 /* Setup.swift */; };
 		902E634E1D24B96700454E40 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E634D1D24B96700454E40 /* HomeViewController.swift */; };
 		908785E81D22085100A258C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E71D22085100A258C2 /* AppDelegate.swift */; };
-		908785EA1D22085100A258C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E91D22085100A258C2 /* ViewController.swift */; };
+		908785EA1D22085100A258C2 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E91D22085100A258C2 /* OAuthViewController.swift */; };
 		908785ED1D22085100A258C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908785EB1D22085100A258C2 /* Main.storyboard */; };
 		908785EF1D22085100A258C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908785EE1D22085100A258C2 /* Assets.xcassets */; };
 		908785F21D22085100A258C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908785F01D22085100A258C2 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		902E634D1D24B96700454E40 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		908785E41D22085100A258C2 /* gitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908785E71D22085100A258C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		908785E91D22085100A258C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		908785E91D22085100A258C2 /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		908785EC1D22085100A258C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		908785EE1D22085100A258C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		908785F11D22085100A258C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				902E634D1D24B96700454E40 /* HomeViewController.swift */,
-				908785E91D22085100A258C2 /* ViewController.swift */,
+				908785E91D22085100A258C2 /* OAuthViewController.swift */,
 				902E634B1D24B6F000454E40 /* Setup.swift */,
 			);
 			name = Controllers;
@@ -201,7 +201,7 @@
 			files = (
 				908785FC1D220FB400A258C2 /* GitHubOAuth.swift in Sources */,
 				908785FA1D2208A100A258C2 /* Credentials.swift in Sources */,
-				908785EA1D22085100A258C2 /* ViewController.swift in Sources */,
+				908785EA1D22085100A258C2 /* OAuthViewController.swift in Sources */,
 				902E634C1D24B6F000454E40 /* Setup.swift in Sources */,
 				908785E81D22085100A258C2 /* AppDelegate.swift in Sources */,
 				902E634E1D24B96700454E40 /* HomeViewController.swift in Sources */,
