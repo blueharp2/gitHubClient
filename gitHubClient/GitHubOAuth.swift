@@ -98,7 +98,7 @@ class GitHubOAuth{
     func tokenRequestWithCallback(url:NSURL, options: SaveOptions, completion: GitHubOAuthCompletion){
         
         func returnOnMain(sucess:Bool, _ completion: (Bool) -> ()){
-            NSOperationQueue.mainQueue().addOperationWithBlock { 
+            NSOperationQueue.mainQueue().addOperationWithBlock {
                 completion(sucess)
             }
         }
@@ -116,7 +116,7 @@ class GitHubOAuth{
                 session.dataTaskWithURL(requestURL, completionHandler: { (data, response, error) in
                     
                     if let _ = error{
-                        NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                        NSOperationQueue.mainQueue().addOperationWithBlock({
                             completion(sucess: false);
                             return
                         })
@@ -127,10 +127,10 @@ class GitHubOAuth{
                                 let token = try self.accessTokenFromString(tokenString)!
                                 
                                 switch options{
-                                    case .UserDefaults: returnOnMain(self.saveAccessTokenToUserDefaluts(token), completion)
-                                    case .Keychain: returnOnMain(self.saveToKeychain(token), completion)
+                                case .UserDefaults: returnOnMain(self.saveAccessTokenToUserDefaluts(token), completion)
+                                case .Keychain: returnOnMain(self.saveToKeychain(token), completion)
                                 }
-                            
+                                
                             } catch _{
                                 returnOnMain(false, completion)
                             }
@@ -139,7 +139,7 @@ class GitHubOAuth{
                 }).resume()
             }
         } catch _{
-           returnOnMain(false, completion)
+            returnOnMain(false, completion)
         }
     }
     
@@ -148,7 +148,7 @@ class GitHubOAuth{
         var query = self.keychainQuery(kAccessTokenKey)
         
         query[(kSecReturnData as String)] = kCFBooleanTrue
-        query[(kSecMatchLimit as String)] = "no token"
+        query[(kSecMatchLimit as String)] = kSecMatchLimitOne
         
         var dataRef: AnyObject?
         
@@ -180,22 +180,24 @@ class GitHubOAuth{
     
     
 //MARK:Save to Keychain
+
+    func keychainQuery(query:String) -> [String:AnyObject]{
+        
+        return [
+            (kSecClass as String):kSecClassGenericPassword,
+            (kSecAttrService as String):query,
+            (kSecAttrAccount as String):query,
+            (kSecAttrAccessible as String):kSecAttrAccessibleAfterFirstUnlock
+        ]
+    }
+    
     private func saveToKeychain(token: String) -> Bool{
         var query = self.keychainQuery(kAccessTokenKey)
         query[kSecValueData as String] = NSKeyedArchiver.archivedDataWithRootObject(token)
         SecItemDelete(query)
         
         return SecItemAdd(query, nil) == errSecSuccess
+        
     }
     
-    func keychainQuery(query:String) -> [String:AnyObject]{
-        
-        return [(kSecClass as String):kSecClassGenericPassword,
-            (kSecAttrService as String):query,
-            (kSecAttrAccount as String):query,
-            (kSecAttrAccessible as String):kSecAttrAccessibleAfterFirstUnlock
-        ]
-        
-    }
-        
 }
