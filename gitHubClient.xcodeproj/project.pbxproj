@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		902E63441D24B23E00454E40 /* gitHub.png in Resources */ = {isa = PBXBuildFile; fileRef = 902E63431D24B23E00454E40 /* gitHub.png */; };
+		902E634C1D24B6F000454E40 /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E634B1D24B6F000454E40 /* Setup.swift */; };
 		908785E81D22085100A258C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E71D22085100A258C2 /* AppDelegate.swift */; };
 		908785EA1D22085100A258C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E91D22085100A258C2 /* ViewController.swift */; };
 		908785ED1D22085100A258C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908785EB1D22085100A258C2 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		902E63431D24B23E00454E40 /* gitHub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gitHub.png; sourceTree = "<group>"; };
+		902E634B1D24B6F000454E40 /* Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		908785E41D22085100A258C2 /* gitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908785E71D22085100A258C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908785E91D22085100A258C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				908785E91D22085100A258C2 /* ViewController.swift */,
+				902E634B1D24B6F000454E40 /* Setup.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				908785FC1D220FB400A258C2 /* GitHubOAuth.swift in Sources */,
 				908785FA1D2208A100A258C2 /* Credentials.swift in Sources */,
 				908785EA1D22085100A258C2 /* ViewController.swift in Sources */,
+				902E634C1D24B6F000454E40 /* Setup.swift in Sources */,
 				908785E81D22085100A258C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
