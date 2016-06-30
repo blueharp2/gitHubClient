@@ -185,7 +185,6 @@ class GitHubOAuth{
         SecItemDelete(query)
         
         return SecItemAdd(query, nil) == errSecSuccess
-        
     }
-    
 }
+
