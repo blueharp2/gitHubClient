@@ -146,17 +146,25 @@ class GitHubOAuth{
         var dataRef: AnyObject?
         
         if SecItemCopyMatching(query, &dataRef) == errSecSuccess{
-                if let data = dataRef as? NSData{
-                    if let token = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? String{
-                        return token
-                    }
+            if let data = dataRef as? NSData{
+                if let token = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? String{
+                    return token
                 }
             }
+        }else{
+            guard let token = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else{
+                throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
+            }
+            return token
         }
+        return nil
     }
     
+
+    
+    
 //    func accessToken() throws ->String?{
-//        
+//
 //        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else{
 //            throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
 //        }
@@ -173,7 +181,7 @@ class GitHubOAuth{
         return SecItemAdd(query, nil) == errSecSuccess
     }
     
-    private func keychainQuery(query:String) -> [String:AnyObject]{
+    func keychainQuery(query:String) -> [String:AnyObject]{
         
         return [(kSecClass as String):kSecClassGenericPassword,
             (kSecAttrService as String):query,
