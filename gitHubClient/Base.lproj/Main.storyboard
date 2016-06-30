@@ -18,32 +18,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtH-Sj-mKh">
-                                <rect key="frame" x="249" y="285" width="102" height="30"/>
-                                <state key="normal" title="Request Token"/>
+                                <rect key="frame" x="249" y="510" width="102" height="30"/>
+                                <color key="backgroundColor" red="0.2784313725" green="0.50980392159999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="7PD-vy-a2O"/>
+                                    <constraint firstAttribute="height" constant="30" id="l61-Px-abK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="requestToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BSP-me-YVT"/>
+                                    <action selector="logInButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwx-iz-cfN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-gy-AfM">
-                                <rect key="frame" x="261" y="323" width="78" height="30"/>
-                                <state key="normal" title="Print Token"/>
-                                <connections>
-                                    <action selector="printToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kkl-be-hRx"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gitHub.png" translatesAutoresizingMaskIntoConstraints="NO" id="py4-Nt-yTP">
+                                <rect key="frame" x="210" y="190" width="180" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="0Nc-7O-FcE"/>
+                                    <constraint firstAttribute="height" constant="220" id="sPP-He-gum"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitHub Client" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1r-Hr-l90">
+                                <rect key="frame" x="245" y="161" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CnX-gy-AfM" firstAttribute="top" secondItem="VtH-Sj-mKh" secondAttribute="bottom" constant="8" id="DDm-IM-e9P"/>
-                            <constraint firstItem="VtH-Sj-mKh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ivt-Vf-VuM"/>
-                            <constraint firstItem="VtH-Sj-mKh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lIA-an-8Vo"/>
-                            <constraint firstItem="CnX-gy-AfM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ywI-Rj-Q77"/>
+                            <constraint firstItem="py4-Nt-yTP" firstAttribute="top" secondItem="u1r-Hr-l90" secondAttribute="bottom" constant="8" id="3iU-cf-c8g"/>
+                            <constraint firstItem="py4-Nt-yTP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5Fk-nx-Iql"/>
+                            <constraint firstItem="py4-Nt-yTP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lwt-Ag-El3"/>
+                            <constraint firstItem="VtH-Sj-mKh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O7T-7q-WZJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VtH-Sj-mKh" secondAttribute="bottom" constant="60" id="ONK-on-X2g"/>
+                            <constraint firstItem="u1r-Hr-l90" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iPu-o9-nlg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logInButton" destination="VtH-Sj-mKh" id="aPb-ok-uDZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="312" y="372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gitHub.png" width="246" height="205"/>
+    </resources>
 </document>

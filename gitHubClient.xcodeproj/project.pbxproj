@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		902E63441D24B23E00454E40 /* gitHub.png in Resources */ = {isa = PBXBuildFile; fileRef = 902E63431D24B23E00454E40 /* gitHub.png */; };
 		908785E81D22085100A258C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E71D22085100A258C2 /* AppDelegate.swift */; };
 		908785EA1D22085100A258C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908785E91D22085100A258C2 /* ViewController.swift */; };
 		908785ED1D22085100A258C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908785EB1D22085100A258C2 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		902E63431D24B23E00454E40 /* gitHub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gitHub.png; sourceTree = "<group>"; };
 		908785E41D22085100A258C2 /* gitHubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitHubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908785E71D22085100A258C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908785E91D22085100A258C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +41,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		902E63451D24B26C00454E40 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				908785EE1D22085100A258C2 /* Assets.xcassets */,
+				902E63431D24B23E00454E40 /* gitHub.png */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		902E63461D24B29200454E40 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				902E63451D24B26C00454E40 /* New Group */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		902E63471D24B31100454E40 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				908785EB1D22085100A258C2 /* Main.storyboard */,
+				908785F01D22085100A258C2 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		902E63481D24B32E00454E40 /* App Global */ = {
+			isa = PBXGroup;
+			children = (
+				908785E71D22085100A258C2 /* AppDelegate.swift */,
+				908785F91D2208A100A258C2 /* Credentials.swift */,
+				908785F31D22085100A258C2 /* Info.plist */,
+			);
+			name = "App Global";
+			sourceTree = "<group>";
+		};
+		902E63491D24B39900454E40 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				908785E91D22085100A258C2 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		902E634A1D24B3A400454E40 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				908785FB1D220FB400A258C2 /* GitHubOAuth.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		908785DB1D22085100A258C2 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +112,11 @@
 		908785E61D22085100A258C2 /* gitHubClient */ = {
 			isa = PBXGroup;
 			children = (
-				908785E71D22085100A258C2 /* AppDelegate.swift */,
-				908785E91D22085100A258C2 /* ViewController.swift */,
-				908785FB1D220FB400A258C2 /* GitHubOAuth.swift */,
-				908785F91D2208A100A258C2 /* Credentials.swift */,
-				908785EB1D22085100A258C2 /* Main.storyboard */,
-				908785EE1D22085100A258C2 /* Assets.xcassets */,
-				908785F01D22085100A258C2 /* LaunchScreen.storyboard */,
-				908785F31D22085100A258C2 /* Info.plist */,
+				902E63481D24B32E00454E40 /* App Global */,
+				902E634A1D24B3A400454E40 /* API */,
+				902E63491D24B39900454E40 /* Controllers */,
+				902E63471D24B31100454E40 /* Views */,
+				902E63461D24B29200454E40 /* Assets */,
 			);
 			path = gitHubClient;
 			sourceTree = "<group>";
@@ -128,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902E63441D24B23E00454E40 /* gitHub.png in Resources */,
 				908785F21D22085100A258C2 /* LaunchScreen.storyboard in Resources */,
 				908785EF1D22085100A258C2 /* Assets.xcassets in Resources */,
 				908785ED1D22085100A258C2 /* Main.storyboard in Resources */,
