@@ -167,18 +167,6 @@ class GitHubOAuth{
         return nil
     }
     
-
-    
-    
-//    func accessToken() throws ->String?{
-//
-//        guard let accessToken = NSUserDefaults.standardUserDefaults().stringForKey(kAccessTokenKey) else{
-//            throw GitHubOAuthError.MissingAccessToken("There is no Access Token saved.")
-//        }
-//        return accessToken
-//    }
-    
-    
 //MARK:Save to Keychain
 
     func keychainQuery(query:String) -> [String:AnyObject]{

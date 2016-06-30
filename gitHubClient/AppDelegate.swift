@@ -31,13 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//        GitHubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.UserDefaults) { (sucess) in
-//            if sucess{
-//                print("We have a token!!")
-//            }
-//        }
-//        return true
-//    }
 
     func checkOAuthStatus(){
         do{
