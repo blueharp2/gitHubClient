@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             oAuthViewController.view.removeFromSuperview()
                             oAuthViewController.removeFromParentViewController()
                             
-                            //self.homeViewController.update()
+                            self.homeViewController!.update()
                     })
                 }
             }
